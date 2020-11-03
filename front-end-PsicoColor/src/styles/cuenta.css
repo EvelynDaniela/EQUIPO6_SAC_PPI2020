@@ -1,0 +1,40 @@
+nav ul li {
+  list-style: none;
+}
+
+nav ul li {
+  display: block;
+  position: relative;
+}
+
+nav ul li:hover {
+  background: #ff0400;
+}
+
+nav ul li a {
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  padding: 20px;
+  display: block;
+}
+
+nav ul li a:hover {
+  color: #000100;
+}
+
+nav ul li:hover .children {
+  display: block;
+}
+
+nav ul li .children {
+  display: none;
+  background: #ffffff;
+  position: absolute;
+  width: 180%;
+  z-index: 1000;
+}
+
+nav ul li .children li {
+  display: block;
+  overflow: hidden;
+}

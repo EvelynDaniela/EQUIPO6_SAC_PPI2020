@@ -1,0 +1,30 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  columns: #000000;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.options {
+  cursor: pointer;
+  border: 4px solid rgb(255, 255, 255);
+  padding: 10px;
+  width: 50%;
+  margin: 40px 0 0 210px;
+  background-color: #ffffff
+}
+
+.selected {
+  background: linear-gradient(to right, #74ebd5, #acb6e5) !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.ui inverted button {
+  padding: 20px;
+}
