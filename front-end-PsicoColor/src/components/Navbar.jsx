@@ -22,7 +22,10 @@ class Navbar extends React.Component {
             Menú principal
           </Link>
           <Link to="/iniciarsesion" className="btn btn-light">
-            Iniciar sesión
+            Docente
+          </Link>
+          <Link to="/InicioEstudiante" className="btn btn-light">
+            Estudiante
           </Link>
           <Link to="/registro" className="btn btn-light">
             Registrarse

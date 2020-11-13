@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/maestros.css";
+import "../styles/cuenta.css";
 
-class maestros extends React.Component {
+class CuentaEstudiante extends React.Component {
   render() {
     return (
       <div>
@@ -11,19 +11,19 @@ class maestros extends React.Component {
             <ul>
               <li>
                 {" "}
-                <Link to="/maetros">Grados</Link>
+                <Link to="/cuentaEstudiante">Estudiantes</Link>
                 <ul class="children">
                   <li>
                     {" "}
-                    <Link to="/octavo">Octavo</Link>
+                    <Link to="/quiz">Evaluación</Link>
                   </li>
                   <li>
                     {" "}
-                    <Link to="/noveno">Noveno</Link>
+                    <Link to="/home">Videos</Link>
                   </li>
                   <li>
                     {" "}
-                    <Link to="/cuenta">volver</Link>
+                    <Link to="/home">Cerar Sesion</Link>
                   </li>
                 </ul>
               </li>
@@ -35,4 +35,4 @@ class maestros extends React.Component {
   }
 }
 
-export default maestros;
+export default CuentaEstudiante;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class InsigniaFormulario extends React.Component {
+class InsigniaEstudiante extends React.Component {
   //EVENTO BOTÓN
   handleClick = (e) => {
     console.log("Botón presionado");
@@ -40,7 +40,7 @@ class InsigniaFormulario extends React.Component {
             />
           </div>
 
-          <Link to="/cuenta" className="btn btn-light">
+          <Link to="/cuentaEstudiante" className="btn btn-light">
             Entrar
           </Link>
         </form>
@@ -48,5 +48,4 @@ class InsigniaFormulario extends React.Component {
     );
   }
 }
-export default InsigniaFormulario;
-
+export default InsigniaEstudiante;

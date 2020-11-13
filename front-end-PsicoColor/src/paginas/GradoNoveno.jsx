@@ -1,25 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
-class Cuenta extends React.Component {
+class maestros extends React.Component {
   render() {
     return (
       <div>
-        <div className="card">
+        <div class="card">
           <nav>
             <ul>
               <li>
                 {" "}
-                <Link to="/cuenta">Maestros</Link>
+                <Link to="/maetros">Grados</Link>
                 <ul class="children">
                   <li>
                     {" "}
-                    <Link to="/grupos">Revisión</Link>
+                    <Link to="/octavo">Octavo</Link>
                   </li>
-
                   <li>
                     {" "}
-                    <Link to="/home">Cerar Sesion</Link>
+                    <Link to="/noveno">Noveno</Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link to="/cuenta">volver</Link>
                   </li>
                 </ul>
               </li>
@@ -31,4 +35,4 @@ class Cuenta extends React.Component {
   }
 }
 
-export default Cuenta;
+export default maestros;
