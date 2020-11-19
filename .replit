@@ -1,5 +1,5 @@
 language = "nodejs"
 # run = "cd fron-end-PsicoColor && npm i"
  run = "cd fron-end-PsicoColor && npm start"
-# run = "cd back-end-PsicoColor && npm i express nodemon morgan mysql",
+# run = "cd back-end-PsicoColor && npm i express nodemon morgan mysql"
 #run = "cd back-end-PsicoColor && npm run dev"
