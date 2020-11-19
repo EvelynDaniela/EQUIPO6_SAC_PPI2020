@@ -21,7 +21,7 @@ class InsigniaFormulario extends React.Component {
           <div className="form-group">
             <label>Correo:</label>
             <input
-              onChange={this.props.onChange}
+              onChange={this.props.onCh4redfccange}
               className="form-control"
               type="email"
               name="correo"
