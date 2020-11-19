@@ -34,7 +34,7 @@ class GradoOctavo extends React.Component {
                 PALACIO NICOLAS
               </li>
               <li class="list-group-item list-group-item-dark">
-                OSORIO RESTREPO MARIANA
+                OSORIO GUZMAN MARIANA
               </li>
             </ul>
           </nav>

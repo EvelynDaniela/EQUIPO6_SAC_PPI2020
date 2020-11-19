@@ -14,7 +14,7 @@ class GradoNoveno extends React.Component {
 
               <li class="list-group-item list-group-item-primary">
                 {" "}
-                AGUDELO NICOL
+                AGUDELO RESTREPO NICOL
               </li>
               <li class="list-group-item list-group-item-secondary">
                 BERRIO BERRIO LIZ
