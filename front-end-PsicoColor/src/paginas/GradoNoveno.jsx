@@ -1,31 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/cuenta.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-class maestros extends React.Component {
+class GradoNoveno extends React.Component {
   render() {
     return (
       <div>
         <div class="card">
           <nav>
-            <ul>
-              <li>
+            <ul class="list-group">
+              <li class="list-group-item">Lista Estudiantes Noveno</li>
+
+              <li class="list-group-item list-group-item-primary">
                 {" "}
-                <Link to="/maetros">Grados</Link>
-                <ul class="children">
-                  <li>
-                    {" "}
-                    <Link to="/octavo">Octavo</Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="/noveno">Noveno</Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="/cuenta">volver</Link>
-                  </li>
-                </ul>
+                AGUDELO NICOL
+              </li>
+              <li class="list-group-item list-group-item-secondary">
+                BERRIO BERRIO LIZ
+              </li>
+              <li class="list-group-item list-group-item-success">
+                CASTRO MARIA FERNANDA
+              </li>
+              <li class="list-group-item list-group-item-danger">
+                FERNANDEZ PEREZ JENIFER
+              </li>
+              <li class="list-group-item list-group-item-warning">
+                GONZALES ANDRES MAURICIO
+              </li>
+              <li class="list-group-item list-group-item-info">
+                LOPEZ GUZMAN JULIAN
+              </li>
+              <li class="list-group-item list-group-item-light">
+                MESA RAMIREZ NATALIA
+              </li>
+              <li class="list-group-item list-group-item-dark">
+                RESTREPO MARIN ESTEBAN
               </li>
             </ul>
           </nav>
@@ -35,4 +45,4 @@ class maestros extends React.Component {
   }
 }
 
-export default maestros;
+export default GradoNoveno;

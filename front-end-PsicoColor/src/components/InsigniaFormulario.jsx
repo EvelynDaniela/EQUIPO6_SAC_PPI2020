@@ -49,4 +49,3 @@ class InsigniaFormulario extends React.Component {
   }
 }
 export default InsigniaFormulario;
-
