@@ -31,6 +31,15 @@ class Grupos extends React.Component {
               </div>
             </div>
           </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <Link to="/cuenta" class="btn btn-primary">
+                  Regresar
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -76,13 +76,21 @@ class Quiz extends React.Component {
     if (isEnd) {
       return (
         <div className="result">
-          <h3>Tu puntaje final es {this.state.puntaje} puntos </h3>
-          <ul>
-            <li>
-              {" "}
-              <Link to="/cuenta">Ir al menú</Link>
-            </li>
-          </ul>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3>Tu puntaje final es {this.state.puntaje} puntos </h3>
+                <ul>
+                  <li>
+                    {" "}
+                    <Link to="/cuentaEstudiante" class="btn btn-primary">
+                      Ir al menú
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
