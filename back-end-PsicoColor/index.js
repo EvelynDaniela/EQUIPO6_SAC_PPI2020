@@ -8,8 +8,8 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //Routes
-app.use("/api/", require("./routes/estudiante"))
-app.use("/api/", require("./routes/grado"))
+app.use("/api/", require("./routes/estudiantes"))
+app.use("/api/", require("./routes/docente"))
 
 app.get("/", function (req, res) {
     res.send("Hola, bienvenidos al maravilloso mundo del aprendizaje")
