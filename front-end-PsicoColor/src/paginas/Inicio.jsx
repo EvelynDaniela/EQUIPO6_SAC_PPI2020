@@ -1,6 +1,5 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import header from "../imagenes/Slider1.jpg";
 
 class Inicio extends React.Component {
   render() {
