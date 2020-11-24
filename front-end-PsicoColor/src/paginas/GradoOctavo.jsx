@@ -9,7 +9,6 @@ class GradoOctavo extends React.Component {
     this.state = {};
   }
   render() {
-    const { width } = this.props;
     return (
       <div>
         <div class="card">
