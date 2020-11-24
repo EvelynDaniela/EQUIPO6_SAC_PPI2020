@@ -1,0 +1,30 @@
+{
+  "name": "EQUIPO6SACPPI2020-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvelynDaniela/EQUIPO6_SAC_PPI2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvelynDaniela/EQUIPO6_SAC_PPI2020/issues"
+  },
+  "homepage": "https://github.com/EvelynDaniela/EQUIPO6_SAC_PPI2020#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-player": "^2.7.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
