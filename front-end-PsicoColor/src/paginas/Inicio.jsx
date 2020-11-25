@@ -1,5 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import "bootstrap/dist/css/bootstrap.css";
 
 class Inicio extends React.Component {
   render() {
