@@ -19,7 +19,7 @@ class CuentaEstudiante extends React.Component {
                   </li>
                   <li>
                     {" "}
-                    <Link to="/home">Videos</Link>
+                    <Link to="/Videos">Videos</Link>
                   </li>
                   <li>
                     {" "}
