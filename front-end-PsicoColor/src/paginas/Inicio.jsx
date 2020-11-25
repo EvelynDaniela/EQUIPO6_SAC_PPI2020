@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import logonavbar from "../imagenes/Slider1.jpg";
-import ReactPlayer from "react-player";
 import "bootstrap/dist/css/bootstrap.css";
 
 
