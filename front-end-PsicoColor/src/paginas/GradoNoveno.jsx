@@ -10,7 +10,6 @@ class GradoNoveno extends React.Component {
   }
 
   render() {
-    const { width } = this.props;
     return (
       <div>
         <div class="card">

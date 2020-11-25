@@ -1,7 +1,12 @@
 import React from "react";
+<<<<<<< HEAD
 
 import "bootstrap/dist/css/bootstrap.css";
 import logonavbar from "../imagenes/Slider1.jpg";
+=======
+import ReactPlayer from "react-player";
+import "bootstrap/dist/css/bootstrap.css";
+>>>>>>> origin/master
 
 class Inicio extends React.Component {
   render() {
