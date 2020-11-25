@@ -1,104 +1,132 @@
 const { Router } = require("express")
 const router = Router()
-const fs = require("fs")
-var app = require("express")()
+const {connection} = require('../db/mysql')
 
-let FileEstudiantes = null
-let JSONEstudiantes = null
-
-const loadFile = (req) => {
-  FileEstudiantes = fs.readFileSync(`${req.app.get('ABSOLUTE_PATH')}estudiantes.json`, 'utf-8')
-  JSONEstudiantes = JSON.parse(FileEstudiantes)
-}
-
-router.get("/", (req, res) => {
-  res.send("API REST Estudianetes")
+    
+router.get("/docentes", (req, res) => {
+    connection.query('SELECT * FROM docente',  (error, rows, fields) => {
+        if(!error){
+          res.json(rows)
+        }else{
+            res.json({error: "Error ejecutando la consulta"})
+        }
+    })
 })
 
-router.get("/estudiantes", (req, res) => {
-  loadFile(req)
-  res.json(JSONEstudiantes)
-})
-
-router.get("/estudiantes/:id", (req, res) => {
-  let id = req.params.id
-  loadFile(req)
-  let estudiante_encontrado = JSONEstudiantes.find(estudiante => estudiante.id == id)
-
-  if (estudiante_encontrado != undefined)
-    res.status(200).json(estudiante_encontrado)
-  else
-    res.status(200).json({})
-})
-
-router.post("/estudiantes", (req, res) => {
-  let id = JSONEstudiantes.length + 1
-  loadFile(req)
-  /** Captura de información por Destructuring */
-  let {
-    nombre,
-    apellido,
-    correo,
-    html
-  } = req.body
-
-  /** Creación de un nuevo estudiante */
-  let nuevoEstudiante = {
-    id: id,
-    nombre: nombre,
-    apellido: apellido,
-    correo: correo,
-    html: html
+router.get('/docente/:id', (req, res) => {
+  try{
+    const id = req.params.id
+    connection.query(`SELECT * 
+                      FROM docente
+                      WHERE Identificación_del_docente = ?`, [id],  (error, rows, fields) => {
+        if(error){
+          res.json({error: "Error ejecutando la consulta"})
+          
+        }else{
+          if(rows[0])
+            res.json(rows[0])
+          else
+            res.json({})
+        }
+    })
+  }catch(error){
+    res.status(503).json({mensaje : "Error en el servidor.", error : true})
   }
-
-  /** Insertamos nuevo estudiante en el arreglo */
-  JSONEstudiantes.push(nuevoEstudiante)
-
-  /** Escribimos archivo */
-  fs.writeFileSync('./estudiantes.json', JSON.stringify(JSONEstudiantes), 'utf-8')
-
-  res.status(200).json(nuevoEstudiante)
 })
 
-router.put("/estudiantes/:id", (req, res) => {
-  let id = req.params.id
-  let {
-    nombre,
-    apellido,
-    correo,
-    html
-  } = req.body
-  loadFile(req)
-  let estudiante_encontrado = JSONEstudiantes.find(estudiante => {
-    if (estudiante.id == id) {
-      estudiante.nombre = nombre
-      estudiante.apellido = apellido
-      estudiante.correo = correo
-      estudiante.html = html
-      return estudiante
-    }
-  })
-
-  if (estudiante_encontrado != undefined) {
-    /** Escribimos archivo */
-    fs.writeFileSync('./estudiantes.json', JSON.stringify(JSONEstudiantes), 'utf-8')
-    res.status(200).json(estudiante_encontrado)
-  } else
-    res.status(200).json('Estudiante no existe')
+router.get("/docentes/filtro", (req, res) => {
+  try{
+    const nombre = req.query.nombre
+    const SQL = `SELECT a.*, td.descripcion tipo_doc
+                FROM actores a
+                INNER JOIN tipo_documento td ON a.tipo_documento = td.codigo
+                WHERE a.nombres LIKE ? OR a.apellidos LIKE ?`
+    connection.query(SQL,[`%${nombre}%`,`%${nombre}%`], (errors, results, fields) => {
+      if(errors){
+        res.status(500).json({mensje : "error en la consulta"})
+      }else{
+        res.status(200).json(results)
+      }
+    })
+  }catch(error){
+    res.status(502).json({mensaje : "Error en el servidor."})
+  }finally{
+    
+  }
 })
 
-router.delete("/estudiantes/:id", (req, res) => {
-  let id = req.params.id
-  loadFile(req)
-  let indiceEstudiante = JSONEstudiantes.findIndex(estudiante => estudiante.id == id)
+router.post('/docente', async(req,res) => {
+  try{
+    const {
+          Identificacion_del_docente,
+          Nombre_del_docente,
+          Apellidos_del_docente,
+          Correo_electronico,
+          Grupos_del_docente,
+          Contrasena_del_docente
+
+    } = req.body
+    const SQL = `INSERT INTO docente(Identificación_del_docente, Nombre_del_docente, Apellidos_del_docente, Correo_electrónico, Grupos_del_docente, Contraseña_del_docente) VALUES(?, ?, ?, ?, ?, ?)` 
+    const DATA = [Identificacion_del_docente, Nombre_del_docente, Apellidos_del_docente, Correo_electronico, Grupos_del_docente, Contrasena_del_docente]
+
+    const response = await connection.query(SQL, DATA)
+
+    const result = await connection.query(`SELECT * FROM docente WHERE  Identificación_del_docente = ?`, [Identificacion_del_docente])
+
+    res.json(result[0])
+  }catch(error){
+    console.log(error)
+    res.status(502).json({mensaje : "Error en el servidor."})
+  }
+})
+
+router.put('/docente/:Identificacion_del_docente', (req, res) => {
+  try{
+    const Identificacion_del_docente = req.params.Identificacion_del_docente
+    const {
+          Nombre_del_docente,
+          Apellidos_del_docente,
+          Correo_electronico,
+          Grupos_del_docente,
+          Contrasena_del_docente
+    } = req.body
+
+    connection.query(`UPDATE docente
+                      SET Nombre_del_docente = ?, Apellidos_del_docente = ?,  Correo_electrónico = ?, Grupos_del_docente = ?, Contraseña_del_docente = ?
+                      WHERE Identificación_del_docente = ?`,[Nombre_del_docente, Apellidos_del_docente,Correo_electronico, Grupos_del_docente, Contrasena_del_docente, Identificacion_del_docente], (error, resulset, fields) => {
+                        if(error){
+                          console.log(error)
+                          res.status(502).json({mensaje: "Error en motor de base de datos."})
+                        }else{
+                          res.status(201).json({mensaje : 'El docente se actualizo exitosamente.'})
+                        }
+                      } 
+                    )
+
+ //   console.log(id)
+  }catch(error){
+    res.status(502).json({mensaje : "Error en el servidor."})
+  }
+})
+
+router.delete('/docente/:Identificacion_del_docente', (req, res) => {
+  try{
+    const {Identificacion_del_docente} = req.params
+    const SQL = `DELETE FROM docente WHERE Identificación_del_docente = ?`
+    connection.query(SQL, [Identificacion_del_docente], (error, results, fields) => {
+      if(error){
+        res.status(502).json({mensaje : 'Error ejecutando la consulta'})
+      }else{
+        if(results.affectedRows > 0)
+          res.json({mensaje : "Registro eliminado"})
+        else
+          res.json({mensaje : "El registro no existe"})
+      }
+    })
+  }catch(error){
+    res.status(502).json({mensaje:"Error en el servidor"})
+  }
+})
+
   
-  if(indiceEstudiante != -1){
-    JSONEstudiantes.splice(indiceEstudiante, 1)
-    fs.writeFileSync('./estudiantes.json', JSON.stringify(JSONEstudiantes), 'utf-8')
-    res.status(200).json(indiceEstudiante + 1)
-  }else{
-    res.status(200).json('Estudiante no existe')
-  }
-})
-
 module.exports = router

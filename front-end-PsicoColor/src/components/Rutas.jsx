@@ -12,6 +12,7 @@ import CuentaEstudiante from "../paginas/CuentaEstudiante";
 import Grupos from "../paginas/Grupos";
 import GradoOctavo from "../paginas/GradoOctavo";
 import GradoNoveno from "../paginas/GradoNoveno";
+import Videos from "../paginas/Videos";
 function Rutas() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function Rutas() {
           <Route exact path="/grupos" component={Grupos} />
           <Route exact path="/gradoOctavo" component={GradoOctavo} />
           <Route exact path="/gradoNoveno" component={GradoNoveno} />
+          <Route exact path="/Video" component={Videos} />
         </Switch>
       </Layout>
     </BrowserRouter>
