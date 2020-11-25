@@ -26,7 +26,7 @@ class Videos extends React.Component {
         </div>
 
         <div class="card" style={{ width: "40rem" }}>
-          <ReactPlayer url="https://youtu.be/X0sJobShiX4" controls />
+          <ReactPlayer url="https://www.youtube.com/watch?v=GskDOI71Uzo" controls />
           <div class="card-body">
             <h5 class="card-title">Video 2</h5>
             <p class="card-text">
@@ -44,7 +44,7 @@ class Videos extends React.Component {
         </div>
 
         <div class="card" style={{ width: "40rem" }}>
-          <ReactPlayer url="https://youtu.be/X0sJobShiX4" controls />
+          <ReactPlayer url="https://www.youtube.com/watch?v=OZVRYJEgaPM&list=RDGskDOI71Uzo&index=2" controls />
           <div class="card-body">
             <h5 class="card-title">Video 3</h5>
             <p class="card-text">
